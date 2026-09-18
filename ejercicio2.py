@@ -28,3 +28,13 @@ usuarios_afectados = 15          # cambia este valor para probar distintos casos
 sistema_afectado = "VPN"         # cambia este valor para probar el reto extra
  
 # TU CÓDIGO AQUÍ
+
+if usuarios_afectados == 1:
+   print("Baja") 
+elif usuarios_afectados <= 10:
+    print("Media")
+elif usuarios_afectados <= 50:
+    print("Alta")
+    print("escalar a Nivel 2")
+else:
+    prioridad = "Crítica"

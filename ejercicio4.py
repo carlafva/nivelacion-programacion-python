@@ -31,9 +31,17 @@ print("=" * 60)
  
 def validar_password(password):
     # TU CÓDIGO AQUÍ
-    pass
+    if len(password) <8:
+        return "Error: la contraseña debe tener al menos 8 caracteres"
+    elif not any(char.isdigit() for char in password):
+        return "Error: la contraseña debe incluir al menos un número"
+    elif not any(char.isupper() for char in password):
+        return "Error: la contraseña debe incluir al menos una minúscula"
+    else:
+        return "Contraseña válida"
+        pass
 
 # Bloque de prueba (no modificar)
 passwords_prueba = ["abc123", "abcdefg1", "Abcdefg1", "ABCDEFG1"]
 for pw in passwords_prueba:
-    print(f"'{pw}' -> {validar_password(pw)}")
+    print(f"'{pw}' : {validar_password(pw)}")
