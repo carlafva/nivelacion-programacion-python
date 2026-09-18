@@ -30,12 +30,38 @@ tickets_del_dia = [
  
 def clasificar_prioridad(usuarios):
     # TU CÓDIGO AQUÍ (reutiliza la lógica del Ejercicio 2)
-    pass
+    if usuarios == 1:
+        prioridad = "Baja"
+    elif usuarios >= 2 and usuarios <= 10:
+        prioridad = "Media"
+    elif usuarios >= 11 and usuarios <= 50:
+        prioridad = "Alta"
+    elif usuarios > 50:
+        prioridad = "Crítica"
+    else:
+        prioridad = "Número de usuarios no válido"
+    return prioridad
  
  
 def procesar_tickets(lista_tickets):
-    # TU CÓDIGO AQUÍ
-    pass
+    resumen = {
+        "Baja": 0,
+        "Media": 0,
+        "Alta": 0,
+        "Crítica": 0
+    }
+ 
+    for ticket in lista_tickets:
+        prioridad = clasificar_prioridad(ticket["usuarios_afectados"])
+ 
+        print(f"Ticket ID: {ticket['id']}, Prioridad: {prioridad}")
+ 
+        resumen[prioridad] += 1
+ 
+    print("\nResumen de tickets:")
+    for prioridad, cantidad in resumen.items():
+        print(f"{prioridad}: {cantidad}")
  
  
 procesar_tickets(tickets_del_dia)
+ 
